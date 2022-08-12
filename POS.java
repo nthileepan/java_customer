@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;  
 public class POS   
 {
@@ -5,10 +6,10 @@ public static void main(String[] args)
 {  
 String name;
 String y;
-int n=0,x = 0,z=1,a = 0;
+int n=0,x = 0,z=1,a = 1;
 int total = 0,num;
-int[] array = new int[10];
-String[] array1 = new String[10];
+ArrayList<Integer> array = new ArrayList<>();
+ArrayList<String> array1 = new ArrayList<>();
 Scanner sc = new Scanner(System.in);
 do
 {
@@ -20,25 +21,17 @@ do
 	num = input.nextInt();
 	System.out.print("Do you want to continue:(yes or no): ");
 	y = sc.next();
-	array[x] = num;  
-	array1[n] = name;
+	array.add(num);  
+	array1.add(name);
 	y = y.toLowerCase();
-	n++;
-	x++;
 	z++;
 }while(y.equals("yes"));
- 
- for(int i = 0;1<array.length;i++)
- {
-	 if(array[i]==0)
-	 {
-		 break;
-	 }
+for(int i = 0;i<array.size();i++)
+{
+	 total=total + array.get(i);
+	 System.out.println(a+" . "+array1.get(i)+" - "+array.get(i));
 	 a++;
-	 total=total + array[i];
-	 System.out.println(a+" . "+array1[i]+" - "+array[i]);
- }
- System.out.println("YOUR TOTAL IS "+total);
- 
+}
+System.out.println("total: "+total);
 }
 }
